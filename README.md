@@ -25,27 +25,27 @@ For the current project we have used multiple libraries to implement the CQRS pa
 - AutoMapper (to convert the query models to final DTOs)
 <br />
 
-**Project Skeleton**
-<br />
-    - Application
-      The application folder is to divide the application requirements as per the module/functional requirement and then based on module we seperate the command and query operations.
-        - Module (Product)
-            - Command
-            - Query
+**Project Skeleton** <br/>
+The project follows the below skeleton for the implementation.
+- Application
+    The application folder is to divide the application requirements as per the module/functional requirement and then based on module we seperate the command and query operations.
+    - Module (Product)
+        - Command
+        - Query
     
-    - Configuration
-      For any configurations to be done. As of now Mapper profile has been added as part of configuration but can be later extended.
+- Configuration
+    For any configurations to be done. As of now Mapper profile has been added as part of configuration but can be later extended.
 
-    - Controllers
-      It contains all the controllers and the methods that will be exposed as the API endpoints to the end user.
+- Controllers
+    It contains all the controllers and the methods that will be exposed as the API endpoints to the end user.
 
-    - Domain 
-      These are the Data level models/entities which can be configured with EF Core or can be used with raw data queries to fetch the data from the database.
+- Domain 
+    These are the Data level models/entities which can be configured with EF Core or can be used with raw data queries to fetch the data from the database.
 
-    - Models
-      These are the final DTO (Data Transfer Object) which are returned as from the API response. The DTO may be a combination of multiple domain entities and may or may not have the same properties as the domain models.
+- Models
+    These are the final DTO (Data Transfer Object) which are returned as from the API response. The DTO may be a combination of multiple domain entities and may or may not have the same properties as the domain models.
 
-    - Repository
-      It consists of the interface along with the implementation of the repositories which will be further used to connect and perform CRUD operations with the data source.
-      The interfaces defined here are registered as dependencies in the Program.cs file to ensure that they can be used for the DI.
+- Repository
+    It consists of the interface along with the implementation of the repositories which will be further used to connect and perform CRUD operations with the data source.
+    The interfaces defined here are registered as dependencies in the Program.cs file to ensure that they can be used for the DI.
 
