@@ -1,6 +1,7 @@
 # CQRS
 
 **Introduction**
+<br />
 The Command Query Responsibility Segregation (CQRS) pattern is a widely used pattern today for splitting up the CRUD operations for a datastore into read vs update operations.
 At it's core what the CQRS pattern does it that the entity model which is used as part of the database update might not the same model that we use for the reading information from the database.
 When we are designing our systems our basic requirement is to read the data from the datastore which may vary from directly reading a single record from a single datastore to merging multiple records into a single DTO.
@@ -18,11 +19,12 @@ MediatR is used for the implementation of the mediator pattern to help solve the
 We use the IRequest interface of the MediatR's library to create the models to be used for the Query/Command operations.
 
 **Libraries used for implementing CQRS**
+<br />
 For the current project we have used multiple libraries to implement the CQRS pattern.
 - MediatR (to process messages for the command and query)
 - AutoMapper (to convert the query models to final DTOs)
 
-**Project Skeleton**
+- **Project Skeleton**
     - Application
         - Module (Product)
             - Command
