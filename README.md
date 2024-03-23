@@ -23,9 +23,12 @@ We use the IRequest interface of the MediatR's library to create the models to b
 For the current project we have used multiple libraries to implement the CQRS pattern.
 - MediatR (to process messages for the command and query)
 - AutoMapper (to convert the query models to final DTOs)
+<br />
 
-- **Project Skeleton**
+**Project Skeleton**
+<br />
     - Application
+      The application folder is to divide the application requirements as per the module/functional requirement and then based on module we seperate the command and query operations.
         - Module (Product)
             - Command
             - Query
