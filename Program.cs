@@ -16,6 +16,8 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 // mediatr integration
 builder.Services.AddMediatR(cf => cf.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
+builder.Services.AddCors();
+
 // mapper configuration
 builder.Services.AddAutoMapper(typeof(MapperProfile));
 
@@ -31,6 +33,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.MapControllers();
 
