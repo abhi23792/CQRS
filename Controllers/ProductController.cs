@@ -1,4 +1,4 @@
-﻿using CQRS_Skeleton.Application.Query;
+﻿using CQRS_Skeleton.Handlers.Product;
 using CQRS_Skeleton.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -17,8 +17,18 @@ namespace CQRS_Skeleton.Controllers
         }
 
         [HttpGet]
-        public async Task<ProductDTO> GetProductAsync([FromQuery] GetProductsQuery query)
+        [Route("{id}")]
+        public async Task<ProductDTO> GetProductsByIdAsync(int id)
         {
+            var query = new GetProductsByIdQuery { Id = id };
+            return await _mediator.Send(query);
+        }
+
+        [HttpGet]
+        [Route("all")]
+        public async Task<IEnumerable<ProductDTO>> GetAllProductsAsync()
+        {
+            var query = new GetProductsQuery();
             return await _mediator.Send(query);
         }
     }
