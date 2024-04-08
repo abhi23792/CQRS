@@ -3,18 +3,18 @@ using CQRS_Skeleton.Models;
 using CQRS_Skeleton.Repository;
 using MediatR;
 
-namespace CQRS_Skeleton.Application.Query
+namespace CQRS_Skeleton.Handlers.Product
 {
-    public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, ProductDTO>
+    public class GetProductsByIdQueryHandler : IRequestHandler<GetProductsByIdQuery, ProductDTO>
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
-        public GetProductsQueryHandler(IProductRepository productRepository, IMapper mapper)
+        public GetProductsByIdQueryHandler(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _mapper = mapper;
         }
-        public async Task<ProductDTO> Handle(GetProductsQuery request, CancellationToken cancellationToken)
+        public async Task<ProductDTO> Handle(GetProductsByIdQuery request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetProductById(request.Id);
 

@@ -11,6 +11,13 @@ namespace CQRS_Skeleton.Repository
             return products.FirstOrDefault(x => x.Id == id);
         }
 
+        /// <inheritdoc />
+        public async Task<IEnumerable<Product>> GetAllProducts()
+        {
+            var products = await Task.Run(GetProducts);
+            return products;
+        }
+
         private List<Product> GetProducts()
         {
             var products = new List<Product>

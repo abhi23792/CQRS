@@ -1,4 +1,4 @@
-﻿namespace CQRS_Skeleton.Application.Command
+﻿namespace CQRS_Skeleton.Handlers.Product
 {
     public class SaveProductsCommand
     {
