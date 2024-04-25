@@ -2,12 +2,12 @@
 
 **Introduction**
 <br />
-The Command Query Responsibility Segregation (CQRS) pattern is a widely used pattern today for splitting up the CRUD operations for a datastore into read vs update operations.
-At it's core what the CQRS pattern does it that the entity model which is used as part of the database update might not the same model that we use for the reading information from the database.
+The Command Query Responsibility Segregation (CQRS) pattern is a widely used pattern today for splitting up the CRUD operations for a datastore into read vs write operations.
+At it's core what the CQRS pattern does it that the entity model which is used as part of the datastore update might not the same model that we use for the reading information from the datastore.
 When we are designing our systems our basic requirement is to read the data from the datastore which may vary from directly reading a single record from a single datastore to merging multiple records into a single DTO.
 Conversely the same is true in case of insertion and deletion of records as well. We may wish to perform some sort of validation rules during insert/update on records and the update on 1 entry may impact the other records as well.
 
-During development based on an individual needs the developer may conceptualize the implementation in his/her own way and this results in multiple domain models being created for each use case which results in increasing the overall complexity of the same.
+During development based on an individual needs the developer may conceptualize the implementation in their own way and this results in multiple domain models being created for each use case which results in increasing the overall complexity of the same.
 The CQRS model comes in to reduce this complexity introduced by different conceptual models added during implementation.
 
 The change that is introduced by CQRS is to split Command and Query operations. For reading the data we introduce models as per the requirement as Query models and for write operations we introduce Command models.
@@ -47,7 +47,7 @@ The project follows the below skeleton for the implementation.
     It contains all the controllers and the methods that will be exposed as the API endpoints to the end user.
 
 - Domain <br />
-    These are the Data level models/entities which can be configured with EF Core or can be used with raw data queries to fetch the data from the database.
+    These are the Data level models/entities which can be configured with EF Core or can be used with raw data queries to fetch the data from the datastore.
 
 - Handlers <br />
     This folder is to divide the application requirements as per the module/functional requirement and then based on module we seperate the command and query operations.
