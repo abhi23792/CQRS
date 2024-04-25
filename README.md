@@ -18,6 +18,10 @@ MediatR is used for the implementation of the mediator pattern to help solve the
 
 We use the IRequest interface of the MediatR's library to create the models to be used for the Query/Command operations.
 
+The flow for the CQRS looks as per the below diagram.
+<br />
+![alt text](./img/CQRS.jpg)
+
 **Mediator Pattern**
 <br />
 The mediator design pattern's primarily aimed at decoupling the communication between classes by using a common meditor object.
@@ -36,25 +40,25 @@ For the current project we have used multiple libraries to implement the CQRS pa
 **Project Skeleton** <br/>
 The project follows the below skeleton for the implementation.
     
-- Configuration
+- Configuration <br />
     For any configurations to be done. As of now Mapper profile has been added as part of configuration but can be later extended.
 
-- Controllers
+- Controllers <br />
     It contains all the controllers and the methods that will be exposed as the API endpoints to the end user.
 
-- Domain 
+- Domain <br />
     These are the Data level models/entities which can be configured with EF Core or can be used with raw data queries to fetch the data from the database.
 
-- Handlers
+- Handlers <br />
     This folder is to divide the application requirements as per the module/functional requirement and then based on module we seperate the command and query operations.
     - Module (Product)
         - Command
         - Query
 
-- Models
+- Models <br />
     These are the final DTO (Data Transfer Object) which are returned as from the API response. The DTO may be a combination of multiple domain entities and may or may not have the same properties as the domain models.
 
-- Repository
+- Repository <br />
     It consists of the interface along with the implementation of the repositories which will be further used to connect and perform CRUD operations with the data source.
     The interfaces defined here are registered as dependencies in the Program.cs file to ensure that they can be used for the DI.
 
