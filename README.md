@@ -1,4 +1,4 @@
-# CQRS
+# CQRS with .NET Core
 
 **Introduction**
 <br />
@@ -9,14 +9,6 @@ Conversely the same is true in case of insertion and deletion of records as well
 
 During development based on an individual needs the developer may conceptualize the implementation in their own way and this results in multiple domain models being created for each use case which results in increasing the overall complexity of the same.
 The CQRS model comes in to reduce this complexity introduced by different conceptual models added during implementation.
-
-The change that is introduced by CQRS is to split Command and Query operations. For reading the data we introduce models as per the requirement as Query models and for write operations we introduce Command models.
-
-With this project we have the MediatR library to implement the CQRS pattern.
-
-MediatR is used for the implementation of the mediator pattern to help solve the problem of decoupling the process of process of handling and processing messages.
-
-We use the IRequest interface of the MediatR's library to create the models to be used for the Query/Command operations.
 
 The flow for the CQRS looks as per the below diagram.
 <br />
